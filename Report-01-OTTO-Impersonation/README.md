@@ -57,6 +57,8 @@ dmarc=fail action=none header.from=newsletter.otto.de;
 - **From / Reply-To mismatch.** The From address claims to be OTTO, but Reply-To, the envelope sender and the Message-ID all point to `winner-win.art`. Any reply from the victim would go to the attacker, not to OTTO.
 - **Suspicious sending server.** The sending host identified itself as `qktfxzqsjmwfnksijbkrjpmhgadbswa.whskk2`, a random, meaningless string that is not a valid public hostname. This pattern is typical of spam infrastructure and botnets, not of legitimate corporate mail servers.
 
+![Email authentication results](img/1153-header.png)
+
 ---
 
 ## 4. IP Reputation — `80.96.157[.]91`
@@ -78,6 +80,8 @@ dmarc=fail action=none header.from=newsletter.otto.de;
 - A legitimate OTTO newsletter would be sent from OTTO's own mail infrastructure or a reputable email service provider with valid SPF/DKIM, not from a rented VPS with a random hostname.
 
 **Conclusion:** the IP reputation alone is inconclusive, but combined with the failed authentication, the sending infrastructure is considered **suspicious**.
+
+![AbuseIPDB result for 80.96.157.91](img/1153-abuseipdb.png)
 
 ---
 
@@ -103,6 +107,10 @@ The HTML body (`Content-Transfer-Encoding: 7bit`, not encoded) was searched for 
 - **Malicious:** Chong Lua Dao, CRDF, Webroot
 - **Suspicious:** ESET
 - Registrar: Namecheap Inc.
+
+![Links and tracking pixel in the raw HTML body](img/1153-links.png)
+
+![VirusTotal result for firiri.shop](img/1153-virustotal.png)
 
 ---
 
