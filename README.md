@@ -11,6 +11,7 @@ Each report covers the full investigation workflow a SOC analyst follows when a 
 | # | Report | Impersonated brand | Type | Verdict |
 |---|--------|--------------------|------|---------|
 | 01 | [OTTO Brand Impersonation — Diet Pill Scam](./Report-01-OTTO-Impersonation/) | OTTO (otto.de) | Brand spoofing / Scam | 🔴 Phishing — High |
+| 02 | [Microsoft Impersonation — Reply-Based Scam](./Report-02-Microsoft-Impersonation/) | Microsoft | Lookalike domain / mailto lure | 🔴 Phishing — High |
 
 *More reports coming soon.*
 
