@@ -2,7 +2,7 @@
 
 Hands-on analysis of real-world phishing emails, written in the style of SOC (Security Operations Center) incident reports.
 
-Each report covers the full investigation workflow a SOC analyst follows when a suspicious email is reported: header analysis, sender authentication (SPF / DKIM / DMARC), IP and domain reputation, URL analysis, identification of phishing techniques, IOC extraction, a final verdict and response recommendations.
+Each report covers the full investigation workflow a SOC analyst follows when a suspicious email is reported: header analysis, sender authentication (SPF / DKIM / DMARC), IP and domain reputation, URL and attachment analysis, identification of phishing techniques, IOC extraction, a final verdict and response recommendations.
 
 ---
 
@@ -12,6 +12,7 @@ Each report covers the full investigation workflow a SOC analyst follows when a 
 |---|--------|--------------------|------|---------|
 | 01 | [OTTO Brand Impersonation — Diet Pill Scam](./Report-01-OTTO-Impersonation/) | OTTO (otto.de) | Brand spoofing / Scam | 🔴 Phishing — High |
 | 02 | [Microsoft Impersonation — Reply-Based Scam](./Report-02-Microsoft-Impersonation/) | Microsoft | Lookalike domain / mailto lure | 🔴 Phishing — High |
+| 03 | [Malicious .mobileconfig — Mail Hijacking](./Report-03-Mobileconfig-Mail-Hijacking/) | Account security alert | Malicious attachment / profile | 🔴 Phishing — High |
 
 *More reports coming soon.*
 
@@ -23,9 +24,10 @@ Each report covers the full investigation workflow a SOC analyst follows when a 
 2. **Authentication checks** — SPF, DKIM and DMARC results and what they prove
 3. **IP reputation** — owner, hosting type, abuse history
 4. **URL & domain analysis** — extracting links from the raw email and checking them safely
-5. **Technique mapping** — social engineering and evasion techniques used
-6. **IOC extraction** — defanged indicators ready for blocking
-7. **Verdict & response** — classification, risk level and SOC recommendations
+5. **Attachment analysis** — decoding and inspecting attachments without executing them
+6. **Technique mapping** — social engineering and evasion techniques used
+7. **IOC extraction** — defanged indicators ready for blocking
+8. **Verdict & response** — classification, risk level and SOC recommendations
 
 ---
 
@@ -37,7 +39,8 @@ Each report covers the full investigation workflow a SOC analyst follows when a 
 | AbuseIPDB | IP abuse reports, ISP and usage type |
 | URLScan.io | Safe URL scanning and redirect analysis |
 | MXToolbox | Email header analysis |
-| CyberChef | Decoding (Base64, quoted-printable, etc.) |
+| CyberChef | Decoding (Base64, quoted-printable, attachments) |
+| WHOIS | Domain registration details |
 
 ---
 
@@ -45,7 +48,7 @@ Each report covers the full investigation workflow a SOC analyst follows when a 
 
 - All samples come from the public research repository [rf-peixoto/phishing_pot](https://github.com/rf-peixoto/phishing_pot).
 - All malicious indicators in the reports are **defanged** (`hxxp://`, `example[.]com`) to prevent accidental clicks.
-- Emails were analyzed as raw text only. No links were opened and no attachments were executed on a host system.
+- Emails were analyzed as raw text only. No links were opened and no attachments were executed or installed on a host system.
 - This repository is for **educational and research purposes only**.
 
 ---
@@ -54,4 +57,4 @@ Each report covers the full investigation workflow a SOC analyst follows when a 
 
 **Shodiyor Tuychivoyev** — aspiring SOC Analyst
 
-<!-- Add your LinkedIn / TryHackMe links here -->
+🔗 [LinkedIn](https://www.linkedin.com/in/shodiyor-tuychivoyev-116a442a5/) · [GitHub](https://github.com/shodiyorcyber) · [TryHackMe](https://tryhackme.com/p/tuychivoyevs)
